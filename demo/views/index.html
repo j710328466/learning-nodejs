@@ -1,0 +1,10 @@
+<%- include("./header.html"); %>
+  <h1><%= title %></h1>
+  <p>Welcome to <%= title %></p>
+  <ul>
+    <% users.forEach(function(user){ %>
+    <%- include("./user.html", {user: user}); %>
+    <% }); %>
+  </ul>
+<%- include("./footer.html") %>
+

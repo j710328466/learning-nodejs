@@ -1,0 +1,349 @@
+html {
+	color: #000;
+	background: #fff;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+html * {
+	outline: 0;
+	-webkit-text-size-adjust: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html,
+body {
+	font-family: sans-serif;
+	font-size: .32rem /* 12/37.5 */;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	margin: 0;
+	padding: 0
+}
+
+input,
+select,
+textarea {
+	font-size: 100%
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+fieldset,
+img {
+	border: 0
+}
+
+abbr,
+acronym {
+	border: 0;
+	font-variant: normal
+}
+
+del {
+	text-decoration: line-through
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+	font-style: normal;
+	font-weight: 500
+}
+
+ol,
+ul {
+	list-style: none
+}
+
+caption,
+th {
+	text-align: left
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: 500
+}
+
+q:before,
+q:after {
+	content: ''
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline
+}
+
+sup {
+	top: -.5em
+}
+
+sub {
+	bottom: -.25em
+}
+
+a:hover {
+	text-decoration: underline
+}
+
+ins,
+a {
+	text-decoration: none
+}
+
+.modal {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.login_model {
+	z-index: 500;
+}
+/*登录框*/
+.login_model .mo_container {
+	position: relative;
+	background-color: #fff;
+	width: 7.866667rem;
+	margin: 2.4rem 1.066667rem 0;
+	border-radius: 0.426667rem;
+	padding: 0.8rem 0.8rem 0.933333rem;
+	box-sizing: border-box;
+}
+.login_model .mo_container img {
+	float: right;
+	width: 1.84rem;
+}
+.login_model .mo_container h2 {
+	text-align: left;
+	margin-top: 0.48rem;
+	margin-bottom: 1.72rem;
+	font-size: 0.48rem;
+	line-height: 0.56rem;
+}
+.login_model .mo_container .form_group {
+	border-bottom: 1px solid #d8d8d8;
+	width: 100%;
+	padding-bottom: 0.106667rem;
+	margin-bottom: 0.88rem;
+	text-align: left;
+}
+.login_model .mo_container .form_group input {
+	font-size: 0.373333rem;
+	color: #333;
+	height: 0.693333rem;
+	line-height: 0.693333rem;
+}
+
+/*登录*/
+.login {
+	padding: 0.586667rem;
+	position: relative;
+	text-align: center;
+	background-size: 100%;
+}
+.login .form_group {
+	width: 7.466667rem;
+	margin: 0 auto 0.266667rem;
+}
+.login input {
+	width: 7.466667rem;
+	height: 1.013333rem;
+	border-radius: 0.533333rem;
+	border: 1px solid #999;
+	padding-left: 1.066667rem;
+	box-sizing: border-box;
+}
+.login input#phone {
+	background-repeat: no-repeat;
+	background-image: url('https://product.jimistore.com/manual/i5apcS4RWkbPiWKiXiePX3feFimesWyn');
+	background-position: 0.453333rem 0.213333rem;
+	background-size: 0.32rem;
+	margin-bottom: 0.266667rem;
+}
+
+.login #sms {
+	width: 4.64rem;
+	background-repeat: no-repeat;
+	background-image: url('https://product.jimistore.com/manual/AHjyTeFtH6EbwjiYYHT25PGhMYCix6kb');
+	background-position: 0.453333rem 0.293333rem;
+	background-size: 0.4rem;
+}
+
+.login .form_group .btn_sms {
+	width: 2.533333rem;
+	height: 1.013333rem;
+	line-height: 1.013333rem;
+	border-radius: 1.013333rem;
+	margin-left: 0.266667rem;
+}
+.login .btn_submit {
+	width: 7.466667rem;
+	margin: auto;
+	border-radius: 1.013333rem;
+	height: 1.066667rem;
+	margin-bottom: 0.373333rem;
+}
+.login p {
+	width: 7.466667rem;
+	font-size: 0.32rem;
+	margin: auto;
+}
+.protocol {
+	color: rgb(54, 84, 166);
+}
+input#sms {
+	width: 4rem;
+}
+input#phone {
+	width: 100%;
+}
+.form_group .btn_sms {
+	float: right;
+	border-radius: 1.333333rem;
+	width: 2rem;
+	height: 0.693333rem;
+	line-height: 0.693333rem;
+	box-shadow: 0 0 0.13333rem rgba(0, 184, 253, 0.3);
+	text-align: center;
+	font-size: 0.293333rem;
+	color: #fff;
+}
+.login_model .form_group .btn_sms {
+	color: #00b8fd;
+}
+.login_model p {
+	width: 5.866667rem;
+	font-size: 0.266667rem;
+	line-height: 0.4rem;
+	color: #666;
+	margin: auto;
+	text-align: center;
+}
+.login_model p span {
+	color: #00b8fd;
+}
+.login_model .btn_submit {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	-webkit-transform: translate(-50%, 50%);
+	transform: translate(-50%, 50%);
+}
+.btn_submit {
+	margin: auto;
+	width: 3.413333rem;
+	height: 1.12rem;
+	line-height: 1.12rem;
+	color: #fff;
+	background-color: #00b8fd;
+	text-align: center;
+	border-radius: 1.333333rem;
+	font-size: 0.48rem;
+	box-shadow: 0 0 0.13333rem rgba(0, 184, 253, 0.53);
+}
+.goods {
+	overflow: hidden;
+	/* border-radius: 0.266667rem; */
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.goods .title {
+	text-align: center;
+}
+.title > img {
+	width: 3.973333rem;
+	height: 0.666667rem;
+}
+.goods a {
+	width: 50%;
+	float: left;
+}
+.goods a:last-child {
+	margin-right: 0;
+}
+.text {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	padding: 0.533333rem 0.666667rem;
+	border-radius: 0.266667rem;
+}
+.text .title {
+	margin: 0.32rem 0;
+	text-align: center;
+}
+.button {
+	position: relative;
+	overflow: hidden;
+}
+.miniModel {
+	text-align: center;
+}
+.miniModel img{
+	position: absolute;
+	top:40%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	width: 6.666667rem;
+}

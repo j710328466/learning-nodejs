@@ -1,0 +1,497 @@
+<div class="modal miniModel" style="display: none">
+  <img id="mini_favor" src="act_收藏引导图片" alt="">
+</div>
+</div>
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function() {
+        _vds.push(['setAccountId', 'afd52aec026c1084']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+</script>
+<script type="text/javascript">
+    var _czc = _czc || [];
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan style='display:none;' id='cnzz_stat_icon_1261877898'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1261877898' style='display:none;' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?7fe2c1a245abd1422ef337fd7d75791b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script src="https://jsbase.jimistore.com/jquery/jquery-1.10.2.min.js"></script>
+<script src="https://jsbase.jimistore.com/jquery/jquery.md5.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+	if (navigator.userAgent.indexOf('AlipayClient') > -1) {
+		document.writeln('<script src="https://appx/web-view.min.js"' + '>' + '<' + '/' + 'script>');
+	}
+</script>
+<script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.0/alipayjsapi.inc.min.js"></script>
+<script>
+window.base = {};
+
+// 0 测试环境 1 正式环境 2预发布 3开发；
+base.flavor = {
+    'dev': 3, // 开发环境
+    'test': 0, // 测试环境
+    'pre': 2, //预发布
+    'prod': 1, //生产环境
+}['act_环境变量'];
+base.isAndroid = function() {
+  var u = navigator.userAgent,
+    isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+  console.log('安卓机：' + isAndroid);
+  return isAndroid
+}
+</script>
+<script id="base"></script>
+<script id="baseShare"></script>
+<script id="baseTool"></script>
+<!-- 预约模板 -->
+<script id="appoint"></script>
+<script>
+
+base.init();
+
+function init() {
+    //获取用户信息
+    if (base.inApp() || base.isAliPayMini()) {
+      if('act_收藏引导图片'.indexOf('http') !== -1){
+        // 处理支付宝小程序收藏弹框
+        aliMini()
+      }
+    try{
+      base.getMessage(initPage)
+    }catch(err){
+      base.debug(err);
+    }
+    
+    } else {
+        base.getMessage();
+
+        //初始化页面
+        initPage();
+    }
+
+    //注册事件
+    eventList();
+}
+//初始化页面
+function initPage() {
+    _hmt.push(["_trackEvent",'crm_join_act_活动唯一标识_',base.userId || '游客',base.channelName,'0101']);
+    _czc.push(["_trackEvent",'crm_join_act_活动唯一标识_',base.userId || '游客',base.channelName,null,'0101']);
+    base.jimiOpenId = base.getParams('jimiOpenId');
+    base.thirdchannel = base.getParams('thirdchannel');
+    if(base.userId !== '') {
+      saveLogin()
+    }
+    //隐藏未配置图片
+    $('img').each(function() {
+      if($(this).attr('src').indexOf('http') == -1) {
+          $(this).css('display','none');
+      }
+    })
+    //获取券的剩余数量
+    lotteryNum('act_活动唯一标识');
+    //分享配置
+    var wxTitle = 'act_wx分享主标题',
+        alipayTitle = 'act_alipay分享主标题',
+        detail = 'act_wx分享副标题',
+        imgUrl = 'act_wx分享Icon';
+    base.shareConfig(wxTitle,detail,detail,imgUrl,'',alipayTitle)
+
+    //分享回调
+    base.shareSuc = function(res) {
+        base.debug(res);
+        if(base.inApp()) {
+            // var res = JSON.parse(res);
+            base.msg('分享成功');
+            $('.share_model').css('display','none');
+            base.closeMask();
+            sharePost();
+        }
+        else if(base.isWeChat()) {
+            if(res.errMsg.indexOf('ok') !== -1) {
+                base.msg('完成分享');
+                $('.share_model').css('display','none');
+                base.closeMask();
+                sharePost()
+            }else{
+                base.msg('分享失败');
+            }
+        }
+        else if(base.isAliPay()) {
+            if(res.shareResult) {
+                // base.msg('完成分享');
+                $('.share_model').css('display','none');
+                base.closeMask();
+                sharePost()
+            }else{
+                base.msg('分享失败');
+            }
+        }
+        else {
+            base.debug(res,'分享回调');
+        }
+    }
+    if($('.appoint').html() !== undefined) {
+      appoint();
+    }
+    $('.container').show();
+    if(base.userId !== '') {
+      // base.msg('登录成功');
+      return
+    }
+    $('.login').css('display','block');
+}
+// 处理支付宝小程序收藏弹框
+function aliMini(){
+  my.getStorage({
+    key: "FAV_ALERT",
+    success: function (res) {
+      if(base.getParams('debug') === 'true'){
+        alert(JSON.stringify(res) + '收藏有礼')
+      }
+      if (res && res.data === "true") {
+        // 说明已经弹出过了
+        $('.modal.miniModel').hide();
+        base.closeMask();
+      } else {
+        // 没有弹出过
+        my.setStorage({
+            key: "FAV_ALERT", // 缓存数据的key
+            data: "true" // 要缓存的数据
+        })
+        $('.modal.miniModel').show();
+        base.openMask();
+      }
+    }
+  })
+  $('#mini_favor').on('click',function(){
+    my.postMessage({
+        type: "navigateToMiniProgram",
+        appId: "2018122562686742",
+        path: "pages/index/index?originAppId=2017090908636277&newUserTemplate=20190304000000128648"
+    })
+    $('.modal.miniModel').hide();
+    base.closeMask();
+  })
+}
+//录入登录信息
+function saveLogin() {
+  var activityType = location.pathname.split('/').pop().split('.')[0]
+  var params = {
+    activityType:activityType,
+    channel:base.channelName,
+    userId:base.userId
+  },
+  url = base._4999 + '/api/crm/v1/login/saveRecord'
+  params = JSON.stringify(params);
+  base.ajax(url,params,function(res) {
+    if(res.cdoe == 200) {
+
+    }
+  })
+}
+//获取礼券数量
+function lotteryNum(activityType) {
+  var url = base._4999 + '/api/crm/v1/check/awardNum',
+      params = JSON.stringify({activityType:activityType});
+  base.ajax(url,params,function(res) {
+    if(res.code == 200) {
+      var data = res.data || [];
+      data.map(function(obj) {
+        if(obj.num == 0) {
+          $('#' + obj.boundsId + ' img.gary_lottery').css('display','block').siblings('img').css('display','none');
+        }
+      })
+    }else{
+      base.msg(res.message);
+    }
+  })
+}
+//获取礼券
+ function getLottery(type,modalSort,id,isNew) {
+	_hmt.push(["_trackEvent",'crm_lottery_act_活动唯一标识_'+modalSort,base.userId || '游客',base.channelName,'0202']);
+	_czc.push(["_trackEvent",'crm_lottery_act_活动唯一标识_'+modalSort,base.userId || '游客',base.channelName,null,'0202']);
+//   用户未登录
+	if(base.userId == '') {
+	if (base.isAliPayMini()) {
+		my.postMessage({ type: 'requestUserInfoWithLogin' })
+		my.onMessage = function(data) {
+			// ** 已授权 **
+			if (data.user && data.user.userId) {
+				base.userId = data.user.userId || ''
+				base.userName = data.user.name || ''
+				base.phone = data.user.phone || ''
+				localStorage.deviceId = data.user.deviceId || ''
+				localStorage.token = data.user.token || ''
+				var str = JSON.stringify({
+					userId: data.user.userId,
+					phone: data.user.phone,
+					userName: data.user.name,
+				})
+				str = encodeURIComponent(str)
+				document.cookie = 'userInfo=' + str + ';path=/;'
+				localStorage.userInfo = JSON.stringify(data.user)
+			}
+		}
+		return
+	}
+	$('.login_model').css('display','block');
+	base.msg('请先登录');
+	return
+	}
+	var url = base._4999 + '/api/crm/v1/bounds/getBounds',
+		params = {
+			userId : base.userId,
+			activityType: type,
+			boundsId: id,
+			channel : base.channelName
+		};
+	params = JSON.stringify(params);
+	base.ajax(url, params, function(res) {
+		if (res.code == 200) {
+		var data = res.data,
+			isReceive = data.isReceive,
+			awardTip = data.awardTip;
+
+			$('#' + id + ' .got').css('display','block').siblings('img').css('display','none');
+
+			base.msg(awardTip);
+		} else {
+			base.msg(res.message);
+			$('#' + id + ' .gray_lottery').css('display','block').siblings('img').css('display','none');
+		}
+	})
+}
+    //第三方用户体系参数搬运
+    function replaceUrl(url) {
+
+      var reUrl = url.split('#');
+      if(base.jimiOpenId && base.thirdchannel) {
+        if(reUrl[0].indexOf('?') !== -1) {
+          reUrl[0] += '&jimiOpenId='+encodeURIComponent(base.jimiOpenId)+'&thirdchannel='+encodeURIComponent(base.thirdchannel);
+        }else{
+          reUrl[0] += '?jimiOpenId='+encodeURIComponent(base.jimiOpenId)+'&thirdchannel='+encodeURIComponent(base.thirdchannel);
+        }
+
+      }
+      reUrl[1] && (reUrl[0] += '#' + reUrl[1]);
+      return reUrl[0]
+    }
+    //动态跳转链接
+    function goLink(params,modalSort,goodsSort) {
+      _hmt.push(["_trackEvent",'crm_jump_act_活动唯一标识_'+modalSort+goodsSort,base.userId || '游客',base.channelName,'0201']);
+      _czc.push(["_trackEvent",'crm_jump_act_活动唯一标识_'+modalSort+goodsSort,base.userId || '游客',base.channelName,null,'0201']);
+
+      var origin = '';
+      if (base.flavor == 1 || base.flavor == 2) {
+        origin = 'https://h5.jimistore.com'
+      } else { 
+        origin = 'http://h5.test.jimistore.com'
+      }
+      if (!params || params === 'null') {
+        return
+      }
+      else if (params.indexOf('web:') > -1) {		// h5图文
+      	var url = params.replace('web:', '');
+      	if (base.isAliPayMini() && url.indexOf('alipays:') == 0 && url.indexOf('?') > 0) {
+			// exp:
+			// alipays://platformapi/startapp?appId=2018032302431675&query=postingId%3D8852&page=page%2Fcomponents%2Fpages%2Fpostingpart%2Fpostingpart%3FpostingId%3D8852
+			var querys = url.split('?')[1];
+			var kvs = querys.split('&');
+			var arrays = {};
+			kvs.forEach(function(el) {
+				var temp = el.split('=');
+				if (temp.length == 2) {
+					arrays[temp[0]] = decodeURIComponent(temp[1]);
+				}
+			});
+			var myParams = {
+				type: 'navigateToMiniProgram',
+				appId: arrays.appId
+			}
+			if (arrays.page || arrays.path) {
+				myParams.path = arrays.page || arrays.path;
+			}
+			if (arrays.query) {
+				var extraData = {};
+				arrays.query.split('&').forEach(function(el) {
+					var temp = el.split('=');
+					if (temp.length == 2) {
+						extraData[temp[0]] = temp[1];
+					}
+				});
+				myParams.extraData = extraData;
+			}
+			my.postMessage(myParams);
+		} else {
+			location.href = replaceUrl(url);
+		}
+      }
+      else if (params.indexOf('goodsArea:')>-1) {	// 租赁商品专区
+        params = params.replace('goodsArea:','');
+        var areaId = params.slice(0, params.indexOf('&'));
+        var areaName = params.slice(params.indexOf('&') + 1);
+        if (base.inApp()) {
+          location.href = 'goodscategory://' + areaId + '&' + encodeURIComponent((areaName || '商品专区'))
+        } else if (base.isAliPayMini()) {
+          my.navigateTo({
+            url: '/pages/goodsArea/goodsList/goodsList?areaId=' + areaId +
+            '&areaName=' + encodeURIComponent(areaName) +
+            (base.hideHome && '&hideHome='+ base.hideHome)
+          })
+        } else {
+          location.href = replaceUrl(
+            origin + 
+            '/?channelName=' + base.channelName + 
+            (base.hideHome && '&hideHome='+ base.hideHome) + 
+            '#/tab/typeList/' + areaId + '/' + encodeURIComponent((areaName || '商品专区'))
+          )
+        }
+      }
+      else if (params.indexOf('goods:') > -1) {	// 租赁商品详情
+        var goodsId = params.replace('goods:','');
+        if (base.inApp()) {
+          location.href = 'leasegoods://'+goodsId;
+        }else if (base.isAliPayMini()) {
+          my.navigateTo({
+            url: '/pages/goodsDetail/goodsDetail?id=' + goodsId + 
+            (base.hideHome && '&hideHome='+ base.hideHome),
+          })
+        } else {
+          localStorage.goChoose = 3;
+          location.href = replaceUrl(
+            origin + "/?channelName=" + base.channelName + 
+            (base.hideHome && '&hideHome='+ base.hideHome) + "#/tab/leaseChoose/" + goodsId + "/");
+        }
+      }
+      else if (params.indexOf('directSaleGoods:')>-1) {	// 直售商品
+        var goodsId = params.replace('directSaleGoods:','');
+        if (base.inApp()) {
+            location.href = 'directsalegoods://' + goodsId;
+        } else if(base.isAliPayMini()) {
+          base.msg('小程序暂无直售商品~')
+          return
+        } else {
+          localStorage.goChoose = 3;
+          location.href = replaceUrl(
+            origin + 
+            "/?channelName=" + base.channelName + 
+            (base.hideHome && '&hideHome='+ base.hideHome) + "#/shopGoods/" + goodsId);
+        }
+      }
+      else if (params.indexOf('coupon_lis')>-1) {//我的礼券
+        if(base.inApp()) {
+          location.href = 'mycoupon://'
+        } else if (base.isAliPayMini()) {
+          my.navigateTo({
+            url: '/pages/coupon/coupon',
+          })
+        } else {
+          location.href = replaceUrl(
+            origin + 
+            '/?channelName='+base.channelName + 
+            (base.hideHome && '&hideHome='+ base.hideHome) + '#/myAwards');
+        }
+      }
+      else if (params.indexOf('point_lis')>-1) {//我的积分
+        if (base.inApp()) {
+          location.href = 'mypoint://'
+        } else if (base.isAliPayMini()) {
+          base.msg('小程序暂无该模块~')
+          return
+        } else {
+          location.href = replaceUrl(
+            origin + 
+            '/?channelName=' + base.channelName + 
+            (base.hideHome && '&hideHome='+ base.hideHome) + '#/score');
+        }
+      }
+      else if (params.indexOf('pointMall')>-1) {//积分商城
+        if (base.inApp()) {
+          location.href = 'pointmall://'
+        } else if (base.isAliPayMini()) {
+          base.msg('小程序暂无积分商城~')
+          return
+        } else {
+          if(base.userId === '') {
+            $('.login_model').fadeIn();
+            return
+          }
+          var url = base._4999 + '/api/common/v1/point/pointMallUrl',
+              p = {userId: base.userId}
+          base.ajax(url, p,function(res) {
+            if(res.code === "200") {
+              location.href = res.data.url
+            }
+          })
+        }
+      }
+    }
+    function eventList() {
+        //获取验证码
+        $('.btn_sms').on('click',function() {
+            _hmt.push(["_trackEvent",'crm_getcode_act_活动唯一标识',base.userId || '游客',base.channelName,'0301']);
+            _czc.push(["_trackEvent",'crm_getcode_act_活动唯一标识',base.userId || '游客',base.channelName,null,'0301']);
+            base.getSms($(this));
+        })
+        //登录
+        $('.btn_submit').on('click',function() {
+            _hmt.push(["_trackEvent",'crm_login_act_活动唯一标识',base.userId || '游客',base.channelName,'0302']);
+            _czc.push(["_trackEvent",'crm_login_act_活动唯一标识',base.userId || '游客',base.channelName,null,'0302']);
+            base.toLogin(function() {
+              base.msg('登录成功');
+              saveLogin()
+              $('.login').css('display','none');
+
+            });
+        })
+        //机蜜用户协议
+        $('.protocol').on('click',function() {
+            _hmt.push(["_trackEvent",'crm_protocol_act_活动唯一标识',base.userId || '游客',base.channelName,'0303']);
+            _czc.push(["_trackEvent",'crm_protocol_act_活动唯一标识',base.userId || '游客',base.channelName,null,'0303']);
+            location.href = 'https://h5.jimistore.com/rules/bizRule/regist.html';
+        })
+    }
+    //按钮模块跳转形式
+    function buttonLink(alipayLink,wxLink,appLink,h5Link,iosLink,adrLink,modalSort) {
+      if (base.isAliPay() && alipayLink !== 'null:') {
+        goLink(alipayLink,modalSort);
+        return
+      } else if (base.isWeChat() && wxLink !== 'null:') {
+        goLink(wxLink,modalSort);
+        return
+      } else if (base.inApp() && appLink !== 'null:') {
+        goLink(appLink,modalSort);
+        return
+      } else if (h5Link !== 'null:') {
+        goLink(h5Link,modalSort);
+        return
+	  }
+
+      if (base.isAndroid()) {
+        goLink(adrLink,modalSort);
+        return
+      } else {
+        goLink(iosLink,modalSort);
+      }
+    }
+    init();
+</script>
+</body>
+</html>

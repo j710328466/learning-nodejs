@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>我的预约</title>
+    <script type="text/javascript">
+      (function () {
+        var docEl = document.documentElement;
+        var resize = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        var setRem = function () {
+          var screenWidth = docEl.clientWidth || window.screen.width || 375;
+          docEl.style.fontSize = (100 * screenWidth / 1000) + 'px';
+        };
+        // 屏幕大小变化后重新设置rem字号
+        window.addEventListener(resize, setRem, false);
+        setRem();
+      })();
+    </script>
+    <style>
+/*! webpack4配置 */
+@charset "UTF-8";
+html {
+  color: #000;
+  background: #fff;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+html,
+body {
+  font-family: PingFangSC-Regular, Grotesk, Neo-Grotesk, Geometric, Humanist;
+  min-height: 100%; }
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0; }
+input,
+select,
+textarea {
+  font-size: 100%; }
+input {
+  border: 0; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+fieldset,
+img {
+  border: 0;
+  width: 100%;
+  vertical-align: middle; }
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal; }
+del {
+  text-decoration: line-through; }
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-style: normal;
+  font-weight: 500; }
+ol,
+ul {
+  list-style: none; }
+caption,
+th {
+  text-align: left; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500; }
+q:before,
+q:after {
+  content: ''; }
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+sup {
+  top: -.5em; }
+sub {
+  bottom: -.25em; }
+a:hover {
+  text-decoration: underline; }
+ins,
+a {
+  text-decoration: none; }
+.clearfix:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+.clearfix {
+  /* 触发 hasLayout */
+  zoom: 1; }
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7); }
+/*登录框*/
+.login_model {
+  z-index: 1; }
+.login_model .mo_container {
+  position: relative;
+  background-color: #fff;
+  width: 7.866667rem;
+  margin: 2.4rem 1.066667rem 0;
+  border-radius: 0.426667rem;
+  padding: 0.8rem 0.8rem 0.933333rem;
+  box-sizing: border-box; }
+.login_model .mo_container img {
+  float: right;
+  width: 1.84rem; }
+.login_model .mo_container h2 {
+  text-align: left;
+  margin-top: 0.48rem;
+  margin-bottom: 1.72rem;
+  font-size: 0.48rem;
+  line-height: 0.56rem; }
+.login_model .mo_container .form_group {
+  border-bottom: 1px solid #d8d8d8;
+  width: 100%;
+  padding-bottom: 0.106667rem;
+  margin-bottom: 0.88rem;
+  text-align: left; }
+.login_model .mo_container .form_group input {
+  font-size: 0.373333rem;
+  color: #333;
+  height: 0.693333rem;
+  line-height: 0.693333rem; }
+input#sms {
+  width: 4rem; }
+input#phone {
+  width: 100%; }
+.form_group .btn_sms {
+  float: right;
+  border-radius: 1.333333rem;
+  width: 2.0rem;
+  height: 0.693333rem;
+  line-height: 0.693333rem;
+  box-shadow: 0 0 0.13333rem rgba(0, 184, 253, 0.3);
+  text-align: center;
+  font-size: 0.293333rem;
+  color: #666; }
+.login_model p {
+  width: 5.866667rem;
+  font-size: 0.266667rem;
+  line-height: 0.4rem;
+  color: #666;
+  margin: auto;
+  text-align: center; }
+.login_model p span {
+  color: #00b8fd; }
+.btn_submit {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  width: 3.413333rem;
+  height: 1.12rem;
+  line-height: 1.12rem;
+  color: #fff;
+  background-color: #00b8fd;
+  text-align: center;
+  border-radius: 1.333333rem;
+  font-size: 0.48rem;
+  box-shadow: 0 0 0.13333rem rgba(0, 184, 253, 0.53); }
+.container {
+  padding: 0 0.53333rem; }
+ul.order_list {
+  padding-top: 0.53333rem; }
+ul.order_list .no_order {
+    text-align: center; }
+ul.order_list .no_order img {
+      margin-top: 4.26667rem;
+      width: 3.81333rem; }
+ul.order_list li.order_item {
+    box-shadow: 0 0.13333rem 0.53333rem 0 rgba(0, 0, 0, 0.1);
+    padding: 0.26667rem 0.4rem;
+    position: relative;
+    margin-bottom: 0.8rem;
+    border-radius: 0.16rem; }
+ul.order_list li.order_item .top {
+      padding-left: 3.2rem;
+      padding-bottom: 0.56rem;
+      border-radius: 0.05333rem;
+      border-bottom: 0.02667rem solid #e9e9e9;
+      margin-bottom: 0.24rem; }
+ul.order_list li.order_item .top img {
+        position: absolute;
+        top: 0.26667rem;
+        left: 0.4rem;
+        width: 2.4rem;
+        background-color: #F5F5F5; }
+ul.order_list li.order_item .top h3 {
+        font-size: 0.48rem;
+        color: #333;
+        margin-bottom: 0.21333rem; }
+ul.order_list li.order_item .top ul.tip_list {
+        overflow: hidden;
+        margin-bottom: 0.56rem; }
+ul.order_list li.order_item .top ul.tip_list li.tip_item {
+          float: left;
+          margin-right: 0.16rem;
+          margin-bottom: 0.10667rem;
+          border-radius: 0.05333rem;
+          padding: 0 0.13333rem;
+          background-color: rgba(208, 208, 208, 0.3);
+          font-size: 0.32rem;
+          color: #666; }
+ul.order_list li.order_item .top h4 {
+        font-size: 0.48rem;
+        color: #00B8FD; }
+ul.order_list li.order_item .bottom p {
+      color: #999;
+      font-size: 0.32rem;
+      margin-bottom: 0.24rem; }
+ul.order_list li.order_item .bottom .btn_goLease {
+      width: 8.13333rem;
+      font-size: 0.37333rem;
+      text-align: center;
+      margin: 0.85333rem auto 0;
+      color: #fff;
+      background-color: #B8B8B8;
+      border-radius: 0.53333rem;
+      line-height: 1.06667rem;
+      height: 1.06667rem; }
+ul.order_list li.order_item .bottom .btn_goLease.active {
+        background-color: #00B8FD; }
+
+.config_slider_box {
+  width: 100%; }
+  .config_slider_box img {
+    width: 100%;
+    vertical-align: middle; }
+  .config_slider_box ul.img_list {
+    position: relative;
+    overflow: hidden; }
+  .config_slider_box ul.img_list li {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: all .5s linear; }
+  .config_slider_box ul.img_list li.active {
+        opacity: 1; }
+  .config_slider_box ul.num_list {
+    margin-top: rem(10rem);
+    border-bottom: rem(1rem) solid #E9E9E9; }
+  .config_slider_box ul.num_list li {
+      transition: all .3s linear; }
+  .config_slider_box ul.num_list li.active {
+        border-bottom: rem(2rem) solid #00B8FD;
+        -webkit-transform: translateY(rem(1rem));
+                transform: translateY(rem(1rem)); }
+
+
+    </style>
+</head>
+<body>
+<div class="container" style="display: block">
+    <ul class="order_list" style="display: block">
+        <li><img src="https://jmproduct.oss-cn-hangzhou.aliyuncs.com/manual/ca5f1d54-1841-j8c6-ebde-292d7ebdec5c" alt="无预约信息" class="no_order"></li>
+        <!--<li class="order_item">-->
+            <!--<div class="top">-->
+                <!--<img src="">-->
+                <!--<h3>iPhone XXXXX</h3>-->
+                <!--<ul class="tip_list">-->
+                    <!--<li class="tip_item">32G</li>-->
+                    <!--<li class="tip_item">银色</li>-->
+                    <!--<li class="tip_item">国行</li>-->
+                    <!--<li class="tip_item">11个月</li>-->
+                <!--</ul>-->
+                <!--<h4>￥259.00/月</h4>-->
+            <!--</div>-->
+            <!--<div class="bottom">-->
+                <!--<p class="pre_time">预约时间：2018-9-13 12：00</p>-->
+                <!--<p class="pre_num">预约人数：234</p>-->
+                <!--<div class="btn_goLease">开抢时间：2018-9-13 00:00</div>-->
+            <!--</div>-->
+        <!--</li>-->
+    </ul>
+     <!-- 登录框 -->
+     <div class="modal login_model" style="display: none;">
+        <div class="mo_container">
+            <img src="https://jmproduct.oss-cn-hangzhou.aliyuncs.com/manual/5ecf5b4d-731e-j9ef-e718-92de60567ddb">
+            <h2>Hi! <br><br>欢迎光临</h2>
+            <div class="form_group">
+                <input type="number" id="phone" placeholder="请输入手机号">
+            </div>
+            <div class="form_group">
+                <div class="btn_sms">获取验证码</div>
+                <input style="display: block" type="number" id="sms" placeholder="请输入验证码">
+            </div>
+            <p>首次使用机蜜平台服务，登录时将创建机蜜账号，点击登录即代表您同意 <span class="protocol">《机蜜用户服务协议》</span>。</p>
+            <div class="btn_submit">登录</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+  var _czc = _czc || [];
+  var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  document.write(unescape("%3Cspan style='display:none;' id='cnzz_stat_icon_1261877898'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1261877898' style='display:none;' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?7fe2c1a245abd1422ef337fd7d75791b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<script src="https://jsbase.jimistore.com/jquery/jquery-1.10.2.min.js"></script>
+<script src="https://jsbase.jimistore.com/jquery/jquery.md5.min.js"></script>
+<script>
+window.base = {};
+//是否为jimiApp
+function isApp(){
+  // console.log("正在判断是否为App");
+  var ua = navigator.userAgent.toLowerCase();
+  if((ua.match(/jimi-app/i)) || (ua.match(/z11/i))) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//是否在微信中
+function isWeChat() {
+  // console.log('正在判断是否为微信');
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.match(/MicroMessenger/i)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+//是否在支付宝中
+function isAlipay() {
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.match(/alipayclient/i)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+//手机号验证
+function isPhone(str) {
+  var pattern = /^\d{11}$/;
+  if (pattern.test(str)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+//是否是安卓
+function isAndroid(){
+  var u = navigator.userAgent,
+    isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+  console.log('安卓机：' + isAndroid);
+  return isAndroid
+}
+//是否为iphoneX
+function isIPhoneX(){
+  return screen.height >= 750
+  // return /iphone/gi.test(navigator.userAgent) && (screen.height == 812 && screen.width == 375)
+}
+//是否为oppo
+function isOppo(){
+  var u = navigator.userAgent;
+  return !!u.match(/oppo/ig)
+}
+
+ function isJRApp() {
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.match(/jdjr/i)) {
+    return true;
+  }
+  if (ua.match(/jdapp/i)) {
+    return true;
+  }
+  else {
+    return false;
+  };
+}
+//第三方app
+function isThirdApp() {
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.indexOf('jimi-thirdapp-')>-1) {
+    return true;
+  }
+  else {
+    return false;
+  };
+}
+// 0 测试环境 1 正式环境 2预发布 3开发；
+base.flavor = {
+  'dev': 3, // 开发环境
+  'test': 0, // 测试环境
+  'pre': 2, //预发布
+  'prod': 1, //生产环境
+}['prod'];
+
+base.deviceId = '';		// 设备编号
+
+base.channelName = '';	// 渠道编号
+base.channel = '';      //三方渠道
+base.userId = '';       //用户id
+base.userName = '';       //用户名
+base.phone = '';       //用户手机
+base._4999 = '';        //接口域名
+base._3999 = '';
+base._100 = '';
+base.origin = '';
+base.authExist = '';
+base.shareFlag = true;
+if(base.flavor === 0) {
+  base._4999 = 'http://common-api.test.jimistore.com';
+  base.new4999 = 'http://operationactivity.test.jimistore.com';
+  base._100 = 'http://lease-api.test.jimistore.com';
+  base._user = 'http://jimi-user-api.test.jimistore.com';
+  base.JIMIH5 = 'http://h5.test.jimistore.com'; 
+  base._migu = 'http://activityfission-api.test.jimistore.com';
+  //复租
+  base.visitAddress = '/api/activityConfig/c2722e0a612f44ecb0b397bffbc39a7c';
+}else if(base.flavor === 1){
+  base._4999 = 'https://common.jimistore.com';
+  base.new4999 = 'https://operationactivity.jimistore.com';
+  base._user = 'https://jimi-user-api.jimistore.com';
+  base._100 = 'https://lease.jimistore.com';
+  base._migu = 'https://activityfission-api.jimistore.com';
+  base.JIMIH5 = 'https://h5.jimistore.com'; 
+  //复租
+  base.visitAddress = '/api/activityConfig/0ab8b5ca069448fca2cdd32a67d7ca20';
+}else if(base.flavor === 2){
+  base._4999 = 'https://testcommon.jimistore.com';
+  base.new4999 = 'https://testoperationactivity.jimistore.com';
+  base._100 = 'https://testlease.jimistore.com';
+  base._user = 'https://jimi-testuser.jimistore.com';
+  base.visitAddress = '/api/activityConfig/0ab8b5ca069448fca2cdd32a67d7ca20';
+  base._migu = 'https://activityFission-api-sandbox.jimistore.com'
+  base.JIMIH5 = 'https://jimi-h5.test.jimistore.com'; 
+}else if(base.flavor === 3){
+  base._4999 = 'http://common-api.dev.jimistore.com';
+  base.new4999 = 'http://operationactivity.dev.jimistore.com';
+  base._100 = 'http://lease-api.dev.jimistore.com';
+  base._user = 'http://user.dev.jimistore.com';
+  base._migu = 'http://activityfission-api.dev.jimistore.com';
+  base.JIMIH5 = 'http://h5.dev.jimistore.com'; 
+  // base._migu = 'http://192.168.21.7:21102'
+}
+var $phone,$sms,$modal,$ = window.$;
+
+base.init = function(){
+  $phone = $('#phone');
+  $sms = $('#sms');
+  $modal = $('.modal');
+  base.deviceId = base.getParams('deviceId') ? base.getParams('deviceId') : '';
+  base.channelName = base.getParams('channelName');
+  //从cookie中获取用户信息
+  base.getUserInfo();
+
+  $modal.on('click',function(e){
+    if(e.target.className.indexOf('modal') != -1){
+      $modal.css('display','none');
+      base.closeMask();
+    }
+  })
+  //插入msg节点
+  var $msgContainer = $('<div class="model_msg"></div>');
+  $('body').append($msgContainer);
+  $msgContainer.css({
+    position:'fixed',
+    top:'40%',
+    left:'20%',
+    width:'50%',
+    padding:'0.533333rem',
+    backgroundColor:'rgba(0,0,0,.7)',
+    color:'#fff',
+    textAlign:'center',
+    borderRadius:'0.16rem',
+    fontSize:'0.4rem',
+    opacity:'1',
+    transition:'all 3s linear',
+    display:'none',
+    zIndex:'1000'
+  });
+};
+
+//跳转详情页
+base.goDetail = function (goodsId, orderId) {
+  if (goodsId == 'null' || !goodsId) {
+    alert('商品Id不存在');
+    return
+  }
+  if(base.inApp()){
+          location.href = 'leasegoods://'+goodsId;
+      }else {
+          localStorage.goChoose = 3;
+          location.href = base.JIMIH5 + "?channelName=" + base.channelName + "#/tab/leaseChoose/" + goodsId + "/" + (orderId || "");
+      }
+  return
+}
+
+//验证码倒计时
+base.setCount = function(obj,callback) {
+  var self = obj,
+    count = 60, t;
+  self.html(count + "s");
+  self.off('click');
+
+  t = setInterval(function () {
+    if (count <= 1) {
+      clearInterval(t);
+      self.html("重新获取");
+      self.on('click',function(){
+        if(callback){
+          callback(self);
+        }
+      })
+      return;
+    }
+    self.html(--count + "s");
+  }, 1000);
+};
+base.sceneType = function(){
+  var sceneType;
+  if( isApp()) {
+    sceneType =  isAndroid() ? 'jimiAndroid' : 'jimiIos';
+  }else{
+    if( isThirdApp()){
+      sceneType = 'thirdpartyApp'
+    }else if( isJRApp()){
+      sceneType = 'jdJr'
+    }else if( isAlipay()){
+      sceneType = 'alipayClient'
+    }else if( isWeChat()){
+      sceneType = 'wxClient'
+    }else{
+      sceneType = 'wap'
+    }
+  }
+  base.SCENE_TYPE = sceneType;
+  return sceneType
+}
+base.createUuid = function(){
+  var d = new Date().getTime();
+  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = (d + Math.random()*16)%16 | 0;
+    d = Math.floor(d/16);
+    return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+  });
+  localStorage.deviceId = uuid;
+  return uuid;
+}
+//签名请求
+base.ajax = function(url,params,suc,err,async){ //V2
+
+  var m_password=((base.flavor===0 || base.flavor===3)&&'VnYtmBmVYzqGLHiYfV9tKLsQiTa4w2mL') || '9IrVERv1XM8wC581vlxegVFrzhtZ0MxI',
+    m_appid='jimih5',
+    m_userId=base.userId || '',
+    m_deviceId= localStorage.deviceId || base.createUuid(),
+    m_OSVersion=navigator.platform,
+    m_timestamp=parseInt(new Date().getTime()/1000),
+    m_sceneType = base.SCENE_TYPE || base.sceneType();
+  var type = params?'POST':'GET';
+  if(typeof params != 'string' && params){
+    params = JSON.stringify(params);
+  }
+  if(url.indexOf("?")>=0){
+    url=url+"&t="+new Date().getTime();
+  }else{
+    url=url+"?t="+new Date().getTime();
+  }
+  var source = new Array();
+  source.push(m_appid+"=appId");
+  source.push(m_password+"=password");
+  source.push(m_timestamp+"=timestamp");
+  source.push(m_userId+"=userId");
+  source.push(m_deviceId+"=deviceId");
+  source.push(m_OSVersion+"=OSVersion");
+  source.sort();
+  var source=source.join("&");
+  var m_signature=$.md5(source);
+  var headers = {
+    'Content-Type': 'application/json;charset=utf-8',
+    'appId' : m_appid,
+    'deviceId':m_deviceId,
+    'userId':m_userId,
+    'OSVersion':m_OSVersion,
+    'timestamp':m_timestamp,
+    'signature':m_signature,
+    'sceneType':m_sceneType,
+    'channelname':base.channelName,
+    'verifyVersion': '2.0',
+    'token':localStorage.token || ''
+  };
+  if( isApp() && navigator.userAgent.indexOf('jimiVersion2.0') === -1) {
+    headers.verifyVersion = '1.0';
+  }
+  $.ajax({
+    'url': url,
+    'type': type,
+    'dataType': "json",
+    'headers': headers,
+    'async' : async != 'false',
+    'data': params,
+    success: function (data) {
+      if(suc){
+        var msg = data.code ? data : (typeof data === 'object' ? data : $.parseJSON(data));
+        if(msg.code == 200){
+          base.debug(data, url);
+          suc(msg.data);
+        }else{
+          if(err){
+            err(msg);
+          }else {
+            base.debug(data, url);
+          }
+        }
+
+      }
+    },
+    error: function (data) {
+      base.msg('网络异常，请稍候再试');
+
+    }
+  })
+};
+//获取url中的参数
+base.getParams = function (name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+};
+
+//3.2新接口获取验证码
+base.getSms = function(dom,cb){
+  var self = $(dom),
+    phone = $("#phone").val().replace(/\s*/g,""),
+    url = base._user + '/api/user/service/getSmsVerifyCode/v1',
+    params = {'phone':phone,'smsVerifyType':'login'};
+  if (!phone) {
+    base.msg('请输入手机号', 2000);
+    return
+  }
+  if (! isPhone(phone)) {
+    base.msg('请输入正确手机号', 2000);
+    return false
+  }
+  params = JSON.stringify(params);
+  base.ajax(url, params,function(data){
+    cb && cb()
+    base.msg('验证码已发送', 2000);
+
+    base.setCount(self,base.getSms);
+
+  });
+};
+
+//验证码登录
+base.toLogin = function (callback){
+  var dom = $('.login_model');
+  var self = $(this),
+    url = base._user + '/api/user/service/login/sms/v2',
+    phone = $("#phone").val().replace(/\s*/g,""),
+    code = $("#sms").val() || '',
+    params = {
+      'phone':phone,
+      'smsVerifyCode':code,
+      'channel':base.channelName
+    };
+  if( isApp() && navigator.userAgent.indexOf('jimiVersion2.0') === -1) {
+    url = base._user + '/api/user/service/login/sms/v1';
+  }
+  
+  self.off('click');
+  params = JSON.stringify(params);
+  console.log(params);
+  if (!phone) {
+    base.msg('请输入手机号', 2000);
+    return;
+  }
+  if (! isPhone(phone)) {
+    base.msg('请输入正确手机号', 2000);
+    return false;
+  }
+  if (code == '') {
+    base.msg('请输入验证码', 2000);
+    return false;
+  }
+  base.ajax(url,params,function(data){
+    dom && dom.css('display','none');
+    base.closeMask();
+    
+    base.userId = data.userId || '';
+    base.userName = data.name || '';
+    base.phone = data.phone || '';
+    base.headImageUrl = data.headImageUrl || '';
+    localStorage.token = data.token;
+    localStorage.deviceId = data.deviceId;
+    if( isApp()){
+      var params = {
+        userID:base.userId,
+        deviceID:localStorage.deviceId,
+        token:localStorage.token,
+      }
+      if(navigator.userAgent.indexOf('jimiVersion2.0') > -1) {
+        base.appHandle('setUserLoginV2', JSON.stringify(params))
+      }else{
+        window.location.href = 'register://' + base.userId+'&'+localStorage.deviceId;
+      }
+    }
+    var str = JSON.stringify({
+      'userId':base.userId,
+      'phone':base.phone,
+      'userName':base.userName,
+      'headImageUrl':base.headImageUrl,
+      'authExist': data.authExist,
+    });
+    str = encodeURIComponent(str);
+    document.cookie = 'userInfo='+ str +';path=/;';
+    localStorage.userInfo = JSON.stringify(data);
+    callback && callback(data.isRegist);
+
+  })
+  return true
+};
+
+//showMsg黑色弹框
+base.msg = function(str,time){
+  console.log('进入baseMsg');
+  clearTimeout(base.timer);
+  var msg = $('.model_msg');
+  msg.html(str).css('display',"block");
+  base.timer = setTimeout(function(){
+    msg.css('display','none');
+  },time || 2000);
+};
+
+//处理cookie
+base.getCookie = function(str){
+  var useObj = {};
+  var cArr = document.cookie.split(';');
+  for(var i = 0; i<cArr.length; i++){
+    var key = cArr[i].split('=')[0].replace(' ','');
+    var value = cArr[i].split('=')[1];
+    useObj[key] = value;
+  }
+  return useObj[str];
+};
+//获取渠道名和userId
+base.getMessage = function(callback){
+  
+  if( isWeChat()){
+    //微信静默登录
+    base.channelName = base.getParams('channelName') ? base.getParams('channelName') : 'weixin';
+    if(base.authExist === ''){
+      //微信授权
+      localStorage.actOriginUrl = location.origin + location.pathname + '?channelName='+base.channelName + '&origin='+base.getParams('origin');
+      location.replace('rejump.html'+ location.search);
+      return
+    }else {
+      callback && callback()
+    }
+  }
+
+  else if( isAlipay()){
+
+    //支付宝静默登录
+    base.channelName = base.getParams('channelName') ? base.getParams('channelName') : 'xysh';
+    if(base.authExist === ''){
+      localStorage.actOriginUrl = location.origin + location.pathname + '?channelName='+base.channelName + '&origin='+base.getParams('origin');
+      location.replace('rejump.html' + location.search);
+      return
+    }else {
+      callback && callback()
+    }
+  }
+
+  else if( isApp()) {
+
+    //获取app用户信息
+    base.channelName = base.getParams('channelName') ? base.getParams('channelName') : 'app';
+    //
+    var promise = new Promise(function(resolve,reject){
+      base.getAppUser = function(res){
+
+        var res = JSON.parse(res);
+        base.debug(res);
+        if(res.code === '200'){
+
+          var data = res.data || {};
+          base.userId = data.userId || '';
+          localStorage.token = data.token || '';
+          localStorage.deviceId = data.deviceId || '';
+          base.phone = data.phone || '';
+          base.userName = data.userName || '';
+          base.headImageUrl = data.headImageUrl || '';
+          var str = JSON.stringify({
+            'userId':base.userId,
+            'phone':base.phone,
+            'userName':base.userName,
+            'headImageUrl':base.headImageUrl
+          });
+          str = encodeURIComponent(str);
+          document.cookie = 'userInfo='+ str +';path=/;';
+          resolve();
+        }else{
+          reject();
+        }
+      };
+      if(navigator.userAgent.indexOf('jimiVersion2.0') > -1){
+        base.appHandle('requestUserInfoV2','{"callback":"base.getAppUser"}')
+      }else{
+        base.appHandle('requestUserInfo','{"callback":"base.getAppUser"}')
+      }
+
+
+    });
+    promise.then(function(){
+      callback && callback();
+    },function(){
+      alert('获取app用户信息报错');
+    });
+  }else{
+
+    callback && callback();
+  }
+  localStorage.channelName = base.channelName;
+};
+base.appHandle = function(name,callback){
+  //注册获取用户信息事件并执行
+  if (navigator.userAgent.search(/Android|Adr/ig) > -1) {
+    //Android
+    window.MiGuJsInjectCore[name](callback);
+  } else {
+    //IOS
+    window.webkit.messageHandlers[name].postMessage(callback);
+  }
+}
+base.getUserInfo = function(){
+  //h5获取cookie用户信息
+  base.channelName = base.getParams('channelName') || 'h5';
+  if( isAlipay()) {
+    base.channel = 'alipay';
+  }
+  if( isWeChat()){
+    base.channel = 'wx';
+  }
+  //判断浏览器是否启用了cookie
+  if (navigator.cookieEnabled) {
+    var userInfo = base.getCookie('userInfo');
+  } else {
+    window.alert("你的浏览器不支持cookie");//提示浏览器不支持cookie
+    var userInfo = '';
+  }
+
+  if (userInfo) {
+    userInfo = decodeURIComponent(userInfo);
+    
+    userInfo = JSON.parse(userInfo);
+    base.authExist = base.alipayUserId = '';
+    if(typeof userInfo === 'object'){
+      base.userId = userInfo.userId || '';
+      base.userName = userInfo.userName || '';
+      base.phone = userInfo.phone || '';
+      base.headImageUrl = userInfo.headImageUrl || '';
+      base.authExist = userInfo.authExist || '';
+      base.openId = userInfo.openId || '';
+      base.nickName = userInfo.nickName;
+      base.headImageUrl = userInfo.headImageUrl;
+      if(isAlipay()) {
+        base.alipayUserId = userInfo.openId || '';
+      }
+    }
+
+    //兼容老base活动
+    if(!base.phone || !base.userId){
+      base.userId = '';
+      base.phone = '';
+    }
+  }
+}
+//解放窗口
+base.closeMask = function(top){
+  console.log('closeMask');
+  $('body').css({
+    'position':'relative',
+    'top':0
+  });
+  window.scrollTo(0,top || base.top);
+};
+
+//固定窗口
+base.openMask = function(){
+  console.log('openMask');
+  base.top = window.pageYOffset;
+  $('body').css({
+    'position':'fixed',
+    'top':'-'+base.top+'px',
+    'width':'10rem'
+  });
+};
+
+//自定义log
+base.debug = function(data,url){
+  if(data.code === '40101'){
+    base.msg(data.message || '登录信息过期');
+    base.openMask();
+    $('.login_model').css('display','block');
+    return
+  }
+
+  if(base.getParams("debug") == "true"){
+    alert(url+JSON.stringify(data));
+  }else{
+    if(base.flavor !== 1){
+      console.log(url);
+      console.log(data);
+    }
+    if(data.code != 200){
+      
+      if(base.flavor === 1 || base.flavor === 2)
+        base.msg(data.message || '网络异常，请稍后再试');
+      else
+        base.msg(data.message || '系统返回异常');
+    }
+  }
+};
+
+
+base.init();
+(function () {
+
+  base.getMessage(initPage)
+
+  event()
+})()
+
+function initPage() {
+  if(base.userId !== ''){
+    getOrderInfo()
+  }else{
+    $('.login_model').show();
+  }
+}
+function getOrderInfo(){
+  var url = base._4999 + '/api/crm/appointment/myAppointInfo';
+  base.ajax(url, {
+      userId: base.userId,
+    }, function(data) {
+    var html = '';
+    data.map(function(obj) {
+        obj.goodsFormat = [];
+        obj.ruleFirstContent &&  obj.goodsFormat.push(obj.ruleFirstContent);
+        obj.ruleSecondContent &&  obj.goodsFormat.push(obj.ruleSecondContent);
+        obj.ruleThirdContent &&  obj.goodsFormat.push(obj.ruleThirdContent);
+        obj.leaseNum &&  obj.goodsFormat.push(obj.leaseNum);
+        obj.goodsFormat = obj.goodsFormat.join(',');
+    })
+    for (var i = 0; i < data.length; i++) {
+      var obj = data[i],
+          now = +new Date(),
+          createTime = new Date(obj.startTime.replace(/-/g,'/')),
+          endTime = new Date(obj.endTime.replace(/-/g,'/'));
+      html += `
+        <li class="order_item">
+            <div class="top">
+              <img src="${obj.goodsUrl}">
+              <h3>${obj.goodsName}</h3>
+              <ul class="tip_list">
+                ${obj.goodsFormat.split(',').map(
+                function(str){return `<li class="tip_item">${str}</li>`}
+              ).join('')}
+              </ul>
+              <h4>0元预约</h4>
+            </div>
+            <div class="bottom">
+              <p class="pre_time">
+                预约时间：${
+                  createTime.getFullYear()+'-'+
+                  (createTime.getMonth()+1)+'-'+
+                  createTime.getDate()+' '+
+                  createTime.getHours() +':'+ createTime.getMinutes() +':'+createTime.getSeconds()
+                }
+              </p>
+              <p class="pre_num">预约人数：${obj.appointNum}</p>
+              <div data-id="${obj.goodsId || ''}" class="btn_goLease ${+endTime < now ? 'active' : ''}">
+              开抢时间：${
+                endTime.getFullYear()+'-'+
+                (endTime.getMonth()+1)+'-'+
+                endTime.getDate()+' '+ 
+                endTime.getHours() +':'+ endTime.getMinutes() +':'+endTime.getSeconds()
+              }
+              </div>
+            </div>
+        </li>
+      `
+    }
+    if(data.length === 0)
+      html = '<li class="no_order"><img src="https://jmproduct.oss-cn-hangzhou.aliyuncs.com/manual/ca5f1d54-1841-j8c6-ebde-292d7ebdec5c" alt="无预约信息"></li>'
+    $('.order_list').html(html).css('display','block');
+    $('.container').css('display','block');
+    $('.btn_goLease').on('click',function(e) {
+      e.stopPropagation()
+      if(e.target.className.indexOf('active') !== -1) {
+        
+        base.goDetail(e.target.dataset.id);
+      }else
+        return false
+    })
+  })
+}
+
+function event() {
+  //获取验证码
+  $('.btn_sms').on('click', function () {
+    // _hmt.push(["_trackEvent",'以旧换新','getcode',null,'0301']);
+    // _czc.push(["_trackEvent",'以旧换新','getcode',null,null,'0301']);
+    base.getSms($(this));
+  })
+  //登录
+  $('.btn_submit').on('click', function () {
+    // _hmt.push(["_trackEvent",'以旧换新','login',null,'0302']);
+    // _czc.push(["_trackEvent",'以旧换新','login',null,null,'0302']);
+    base.toLogin(getOrderInfo)
+  })
+  //机蜜用户协议
+  $('.protocol').on('click', function () {
+    // _hmt.push(["_trackEvent",'以旧换新','protocol',null,'0303']);
+    // _czc.push(["_trackEvent",'以旧换新','protocol',null,null,'0303']);
+    location.href = location.origin + '/rules/bizRule/regist.html';
+  })
+}
+</script>
+</body>
+</html>
