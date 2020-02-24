@@ -1,10 +1,13 @@
 <%- include("./header.html"); %>
-  <h1><%= title %></h1>
-  <p>Welcome to <%= title %></p>
-  <ul>
-    <% users.forEach(function(user){ %>
-    <%- include("./user.html", {user: user}); %>
+  <h1><%= code %></h1>
+  <p>Welcome to <%= code %></p>
+  <div>
+    <% if (typeof user) { %>
+      <h2><%= user.name %></h2>
+    <% } %>
+    <% data.activityMultButtonConfig.forEach(function(btn){ %>
+    <%- include("./button.html", {btn: btn}); %>
     <% }); %>
-  </ul>
+    </div>
 <%- include("./footer.html") %>
 

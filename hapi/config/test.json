@@ -1,0 +1,14 @@
+{
+  "port": 3100,
+  "host": "127.0.0.1",
+  "jwtSecret": "12323",
+  "mysql": {
+    "username": "root",
+    "password": null,
+    "database": "database_prod",
+    "port": 3100,
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}

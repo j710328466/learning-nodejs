@@ -1,0 +1,38 @@
+{
+    "apps": {
+        "name": "hapi-demo",
+        "script": "app.js",
+        "cwd": "./",
+        "args": "",
+        "interpreter": "",
+        "interpreter_args": "",
+        "watch": true,
+        "ignore_watch": ["node_modules", "public", "logs"],
+        "exec_mode": "cluster_mode",
+        "instances": "2",
+        "error_file": "./logs/app-err.log",
+        "out_file": "./logs/app-out.log",
+        "merge_logs": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "min_uptime": "60s",
+        "max_restarts": 30,
+        "autorestart": true,
+        "restart_delay": "60",
+        "env": {
+            "NODE_ENV": "dev"
+        },
+        "env_production": {
+            "NODE_ENV": "prod"
+        },
+        "deploy": {
+            "production": {
+                "user": "node",
+                "host": "212.83.163.1",
+                "ref": "origin/master",
+                "repo": "git@github.com:repo.git",
+                "path": "/var/www/production",
+                "post-deploy": "npm install && pm2 reload ecosystem.config.js --env production"
+            }
+        }
+    }
+}

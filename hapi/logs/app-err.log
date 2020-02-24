@@ -1,0 +1,92 @@
+2020-01-16 11:19:20: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:19:20: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:19:20: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:19:20: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:19:20: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:19:20: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:19:20: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:19:20: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:25:13: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:25:13: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:25:13: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:25:13: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:25:13: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:25:13: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:25:13: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:25:13: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:29:07: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:29:07: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:29:07: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:29:07: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:29:07: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:29:07: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:29:07: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:29:07: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:30:56: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:30:56: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:30:56: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:30:56: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:30:56: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:30:56: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:30:56: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:30:56: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:36:25: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:36:25: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:36:25: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:36:25: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:36:25: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:36:25: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:36:25: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:36:25: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:37:34: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:37:34: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:37:34: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:37:34: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:37:34: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:37:34: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:37:34: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:37:34: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:37:45: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:37:45: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:37:45: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:37:45: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:37:45: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:37:45: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:37:45: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:37:45: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:40:05: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:40:05: WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+2020-01-16 11:40:05: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:40:05: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:40:05: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:40:06: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:40:06: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:40:06: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:40:49: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:40:49: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:40:49: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:40:49: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:41:05: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:41:05: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:41:05: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:41:05: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:42:09: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:42:09: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:42:09: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:42:09: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:46:27: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:46:27: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:46:27: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:46:27: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:46:30: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:46:30: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:46:30: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:46:30: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:46:37: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:46:37: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:46:38: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:46:38: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:46:40: WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+2020-01-16 11:46:40: WARNING: NODE_APP_INSTANCE value of '0' did not match any instance config file names.
+2020-01-16 11:46:40: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+2020-01-16 11:46:40: WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
